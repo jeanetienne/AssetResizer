@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		F79678ED1EDFD14600AC0948 /* AssetResizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F79678E31EDFD14600AC0948 /* AssetResizer.framework */; };
 		F79678F21EDFD14600AC0948 /* AssetResizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79678F11EDFD14600AC0948 /* AssetResizerTests.swift */; };
-		F79678F41EDFD14600AC0948 /* AssetResizer.h in Headers */ = {isa = PBXBuildFile; fileRef = F79678E61EDFD14600AC0948 /* AssetResizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F79678FE1EDFD5EE00AC0948 /* Resizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79678FD1EDFD5EE00AC0948 /* Resizer.swift */; };
+		F79679001EDFD6A600AC0948 /* ResizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79678FF1EDFD6A600AC0948 /* ResizerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +25,12 @@
 
 /* Begin PBXFileReference section */
 		F79678E31EDFD14600AC0948 /* AssetResizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AssetResizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F79678E61EDFD14600AC0948 /* AssetResizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssetResizer.h; sourceTree = "<group>"; };
 		F79678E71EDFD14600AC0948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79678EC1EDFD14600AC0948 /* AssetResizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssetResizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79678F11EDFD14600AC0948 /* AssetResizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetResizerTests.swift; sourceTree = "<group>"; };
 		F79678F31EDFD14600AC0948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F79678FD1EDFD5EE00AC0948 /* Resizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resizer.swift; sourceTree = "<group>"; };
+		F79678FF1EDFD6A600AC0948 /* ResizerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +73,7 @@
 		F79678E51EDFD14600AC0948 /* AssetResizer */ = {
 			isa = PBXGroup;
 			children = (
-				F79678E61EDFD14600AC0948 /* AssetResizer.h */,
+				F79678FD1EDFD5EE00AC0948 /* Resizer.swift */,
 				F79678E71EDFD14600AC0948 /* Info.plist */,
 			);
 			path = AssetResizer;
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				F79678F11EDFD14600AC0948 /* AssetResizerTests.swift */,
+				F79678FF1EDFD6A600AC0948 /* ResizerTests.swift */,
 				F79678F31EDFD14600AC0948 /* Info.plist */,
 			);
 			path = AssetResizerTests;
@@ -93,7 +96,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F79678F41EDFD14600AC0948 /* AssetResizer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F79678FE1EDFD5EE00AC0948 /* Resizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F79679001EDFD6A600AC0948 /* ResizerTests.swift in Sources */,
 				F79678F21EDFD14600AC0948 /* AssetResizerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
