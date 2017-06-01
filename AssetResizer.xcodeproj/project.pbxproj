@@ -149,6 +149,7 @@
 					F79678E21EDFD14600AC0948 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = N44EJ7YB22;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					F79678EB1EDFD14600AC0948 = {
@@ -321,6 +322,7 @@
 		F79678F81EDFD14600AC0948 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -335,6 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.jeanetienne.AssetResizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -342,6 +345,7 @@
 		F79678F91EDFD14600AC0948 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -363,6 +367,7 @@
 		F79678FB1EDFD14600AC0948 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = N44EJ7YB22;
 				INFOPLIST_FILE = AssetResizerTests/Info.plist;
@@ -376,6 +381,7 @@
 		F79678FC1EDFD14600AC0948 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = N44EJ7YB22;
 				INFOPLIST_FILE = AssetResizerTests/Info.plist;
@@ -405,6 +411,7 @@
 				F79678F91EDFD14600AC0948 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F79678FA1EDFD14600AC0948 /* Build configuration list for PBXNativeTarget "AssetResizerTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +420,7 @@
 				F79678FC1EDFD14600AC0948 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
