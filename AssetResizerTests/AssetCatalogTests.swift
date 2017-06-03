@@ -22,8 +22,7 @@ class AssetCatalogTests: XCTestCase {
         
         for size in sizes {
             print(size)
-        }
-        
+        }        
     }
 
 }
