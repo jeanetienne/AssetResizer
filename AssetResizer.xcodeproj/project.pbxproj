@@ -155,6 +155,7 @@
 				F79678DF1EDFD14600AC0948 /* Frameworks */,
 				F79678E01EDFD14600AC0948 /* Headers */,
 				F79678E11EDFD14600AC0948 /* Resources */,
+				F7F0E35C1EE2693400E09A9A /* Increment Build Number */,
 			);
 			buildRules = (
 			);
@@ -242,6 +243,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F7F0E35C1EE2693400E09A9A /* Increment Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh update-version.sh --xcodeproj=$PROJECT_FILE --plist=$INFOPLIST_FILE";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F79678DE1EDFD14600AC0948 /* Sources */ = {
