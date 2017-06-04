@@ -10,12 +10,20 @@ import AppKit
 
 public struct ResizedImage {
     
+    public let name: String
+
     public let image: NSImage
     
     public let sizeDescription: SizeDescription
-    
-    public func save(to path: URL, type: NSBitmapImageFileType = .PNG) throws {
-        try image.save(to: path, type: type)
+
+    public let bitmapType: NSBitmapImageFileType
+
+    public var filename: String {
+        return "\(name).\(bitmapType.fileExtension)"
+    }
+
+    public func save(at path: URL) throws {
+        try image.save(to: path.appendingPathComponent(filename), type: bitmapType)
     }
     
 }
@@ -75,4 +83,25 @@ extension SizeDescription: CustomDebugStringConvertible {
         return canonicalName
     }
     
+}
+
+extension NSBitmapImageFileType {
+
+    var fileExtension: String {
+        switch self {
+        case .TIFF:
+            return "tiff"
+        case .BMP:
+            return "bmp"
+        case .GIF:
+            return "gif"
+        case .JPEG:
+            return "jpg"
+        case .PNG:
+            return "png"
+        case .JPEG2000:
+            return "jpg"
+        }
+    }
+
 }
