@@ -24,7 +24,10 @@ public struct SizeDescription {
     
     public let name: String
     
-    public let size: NSSize
+    public var size: NSSize {
+        return NSSize(width: pointSize.width * CGFloat(pixelDensity),
+                      height: pointSize.height * CGFloat(pixelDensity))
+    }
     
     public let pixelDensity: Int
     
@@ -36,12 +39,34 @@ public struct SizeDescription {
     
     public init(name aName: String, size aSize: NSSize, pixelDensity aPixelDensity: Int) {
         name = aName
-        size = NSSize(width: aSize.width * CGFloat(aPixelDensity),
-                      height: aSize.height * CGFloat(aPixelDensity))
         pixelDensity = aPixelDensity
         pointSize = aSize
     }
-    
+
+    public init?(json: [String: String]) {
+        guard
+            let aName = json["idiom"],
+            let sizeComponents = json["size"]?.components(separatedBy: "x"),
+            let width = Double(sizeComponents[0]),
+            let height = Double(sizeComponents[1]),
+            let pixelDensityString = json["scale"],
+            let aPixelDensity = Int(pixelDensityString.replacingOccurrences(of: "x", with: ""))
+            else {
+                return nil
+        }
+
+        name = aName
+        pixelDensity = aPixelDensity
+        pointSize = NSSize(width: width, height: height)
+    }
+}
+
+extension SizeDescription: Equatable {
+
+    public static func ==(lhs: SizeDescription, rhs: SizeDescription) -> Bool {
+        return lhs.canonicalName == rhs.canonicalName
+    }
+
 }
 
 extension SizeDescription: CustomDebugStringConvertible {
