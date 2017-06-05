@@ -11,7 +11,8 @@ import Foundation
 public struct AssetCatalog {
 
     enum AssetCatalogError: Error {
-        case CouldNotReadImageSizesFromJSON
+        case CouldNotInterpretImageSizesFromJSON
+        case CouldNotUpdateContents
     }
 
     private let path: URL
@@ -21,7 +22,11 @@ public struct AssetCatalog {
     }
     
     private var jsonContents: [String: Any]?
-    
+
+    internal var jsonRepresentation: [String: Any]? {
+        return jsonContents
+    }
+
     public var sizes: [SizeDescription] {
         if let jsonSizes = jsonContents?["images"] as? [[String: String]] {
             return jsonSizes.map { jsonSize -> SizeDescription? in
@@ -33,17 +38,17 @@ public struct AssetCatalog {
     }
     
     public static func findAppIconSets(inFolder folder: URL) -> [URL] {
-        return AssetCatalog.findCatalogs(withExtension: "appiconset", inFolder: folder)
+        return AssetCatalog.findItems(withExtension: "appiconset", inFolder: folder)
     }
     
-    public static func findCatalogs(withExtension fileExtension: String, inFolder folder: URL) -> [URL] {
+    public static func findItems(withExtension fileExtension: String, inFolder folder: URL) -> [URL] {
         let keys = [URLResourceKey.isDirectoryKey]
         if let enumerator = FileManager.default.enumerator(at: folder, includingPropertiesForKeys: keys) {
             let allPaths = enumerator.allObjects as! [URL]
             return allPaths.filter { $0.pathExtension == fileExtension }
+        } else {
+            return []
         }
-        
-        return []
     }
     
     public init(atPath aPath: URL) {
@@ -51,9 +56,9 @@ public struct AssetCatalog {
         jsonContents = readContents(atPath: jsonPath)
     }
 
-    public mutating func updateContents(with resizedImages: [ResizedImage]) throws {
+    public mutating func update(with resizedImages: [ResizedImage]) throws {
         guard let jsonSizes = jsonContents?["images"] as? [[String: String]] else {
-            throw AssetCatalogError.CouldNotReadImageSizesFromJSON
+            throw AssetCatalogError.CouldNotInterpretImageSizesFromJSON
         }
 
         jsonContents?["images"] = jsonSizes
@@ -74,8 +79,9 @@ public struct AssetCatalog {
             .flatMap { $0 }
 
         if let jsonContents = jsonContents {
-            let jsonData = try? JSONSerialization.data(withJSONObject: jsonContents, options: .prettyPrinted)
-            try? jsonData?.write(to: path.appendingPathComponent("Contents.json"))
+            try write(jsonContents: jsonContents, atPath: jsonPath)
+        } else {
+            throw AssetCatalogError.CouldNotUpdateContents
         }
     }
 
@@ -88,5 +94,11 @@ public struct AssetCatalog {
             return nil
         }
     }
-    
+
+    private func write(jsonContents contents: [String: Any], atPath path: URL) throws {
+        try JSONSerialization
+            .data(withJSONObject: contents, options: .prettyPrinted)
+            .write(to: path)
+    }
+
 }
