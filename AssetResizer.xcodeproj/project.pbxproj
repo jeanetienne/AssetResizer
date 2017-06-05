@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7363ED61EE531DD005BA675 /* ResizedImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7363ED51EE531DD005BA675 /* ResizedImageTests.swift */; };
+		F7678EF61EE550A60089FAF7 /* SizeDescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7678EF51EE550A60089FAF7 /* SizeDescriptionTests.swift */; };
 		F7678EFB1EE558160089FAF7 /* SampleAppIcon.appiconset.zip in Resources */ = {isa = PBXBuildFile; fileRef = F7678EFA1EE558160089FAF7 /* SampleAppIcon.appiconset.zip */; };
 		F7678EFD1EE5717A0089FAF7 /* URL+TempFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7678EFC1EE5717A0089FAF7 /* URL+TempFolder.swift */; };
 		F79678ED1EDFD14600AC0948 /* AssetResizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F79678E31EDFD14600AC0948 /* AssetResizer.framework */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F7363ED51EE531DD005BA675 /* ResizedImageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizedImageTests.swift; sourceTree = "<group>"; };
+		F7678EF51EE550A60089FAF7 /* SizeDescriptionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeDescriptionTests.swift; sourceTree = "<group>"; };
 		F7678EFA1EE558160089FAF7 /* SampleAppIcon.appiconset.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SampleAppIcon.appiconset.zip; sourceTree = "<group>"; };
 		F7678EFC1EE5717A0089FAF7 /* URL+TempFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+TempFolder.swift"; sourceTree = "<group>"; };
 		F79678E31EDFD14600AC0948 /* AssetResizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AssetResizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,8 @@
 			children = (
 				F79678FF1EDFD6A600AC0948 /* AssetResizerTests.swift */,
 				F7F0E35A1EE153EB00E09A9A /* AssetCatalogTests.swift */,
+				F7363ED51EE531DD005BA675 /* ResizedImageTests.swift */,
+				F7678EF51EE550A60089FAF7 /* SizeDescriptionTests.swift */,
 				F7F0E3511EE0390500E09A9A /* Tools */,
 				F7F0E34B1EE0388300E09A9A /* test-data */,
 				F79678F31EDFD14600AC0948 /* Info.plist */,
@@ -284,8 +290,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7363ED61EE531DD005BA675 /* ResizedImageTests.swift in Sources */,
 				F7F0E3531EE0390500E09A9A /* Bundle+Tests.swift in Sources */,
 				F7F0E35B1EE153EB00E09A9A /* AssetCatalogTests.swift in Sources */,
+				F7678EF61EE550A60089FAF7 /* SizeDescriptionTests.swift in Sources */,
 				F79679001EDFD6A600AC0948 /* AssetResizerTests.swift in Sources */,
 				F7F0E3551EE0390E00E09A9A /* TestData.swift in Sources */,
 				F7678EFD1EE5717A0089FAF7 /* URL+TempFolder.swift in Sources */,
