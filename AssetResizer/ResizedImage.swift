@@ -10,16 +10,29 @@ import AppKit
 
 public struct ResizedImage {
     
+    public let image: NSImage
+
     public let name: String
 
-    public let image: NSImage
-    
     public let sizeDescription: SizeDescription
 
     public let bitmapType: NSBitmapImageFileType
 
     public var filename: String {
         return "\(name).\(bitmapType.fileExtension)"
+    }
+
+    init?(original: NSImage,
+          name aName: String,
+          resizing aSizeDescription: SizeDescription,
+          bitmapType aBitmapType: NSBitmapImageFileType) {
+        guard let resizedOriginal = original.resize(to: aSizeDescription.pixelSize) else {
+            return nil
+        }
+        image = resizedOriginal
+        name = aName
+        sizeDescription = aSizeDescription
+        bitmapType = aBitmapType
     }
 
     public func save(at path: URL) throws {
@@ -32,7 +45,7 @@ public struct SizeDescription {
     
     public let name: String
     
-    public var size: NSSize {
+    public var pixelSize: NSSize {
         return NSSize(width: pointSize.width * CGFloat(pixelDensity),
                       height: pointSize.height * CGFloat(pixelDensity))
     }
@@ -45,7 +58,7 @@ public struct SizeDescription {
         return "\(name)-\(Int(pointSize.width))x\(Int(pointSize.height))@\(pixelDensity)x"
     }
     
-    public init(name aName: String, size aSize: NSSize, pixelDensity aPixelDensity: Int) {
+    public init(name aName: String, pointSize aSize: NSSize, pixelDensity aPixelDensity: Int) {
         name = aName
         pixelDensity = aPixelDensity
         pointSize = aSize
