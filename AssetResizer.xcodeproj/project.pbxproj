@@ -20,8 +20,8 @@
 		F7F0E3531EE0390500E09A9A /* Bundle+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3521EE0390500E09A9A /* Bundle+Tests.swift */; };
 		F7F0E3551EE0390E00E09A9A /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3541EE0390E00E09A9A /* TestData.swift */; };
 		F7F0E3571EE0462800E09A9A /* ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3561EE0462800E09A9A /* ResizedImage.swift */; };
-		F7F0E3591EE14C0B00E09A9A /* AssetCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3581EE14C0B00E09A9A /* AssetCatalog.swift */; };
-		F7F0E35B1EE153EB00E09A9A /* AssetCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E35A1EE153EB00E09A9A /* AssetCatalogTests.swift */; };
+		F7F0E3591EE14C0B00E09A9A /* AppIconSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3581EE14C0B00E09A9A /* AppIconSet.swift */; };
+		F7F0E35B1EE153EB00E09A9A /* AppIconSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E35A1EE153EB00E09A9A /* AppIconSetTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +55,8 @@
 		F7F0E3521EE0390500E09A9A /* Bundle+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Tests.swift"; sourceTree = "<group>"; };
 		F7F0E3541EE0390E00E09A9A /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		F7F0E3561EE0462800E09A9A /* ResizedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizedImage.swift; sourceTree = "<group>"; };
-		F7F0E3581EE14C0B00E09A9A /* AssetCatalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCatalog.swift; sourceTree = "<group>"; };
-		F7F0E35A1EE153EB00E09A9A /* AssetCatalogTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCatalogTests.swift; sourceTree = "<group>"; };
+		F7F0E3581EE14C0B00E09A9A /* AppIconSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconSet.swift; sourceTree = "<group>"; };
+		F7F0E35A1EE153EB00E09A9A /* AppIconSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconSetTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 		F79678E51EDFD14600AC0948 /* AssetResizer */ = {
 			isa = PBXGroup;
 			children = (
-				F7F0E3581EE14C0B00E09A9A /* AssetCatalog.swift */,
+				F7F0E3581EE14C0B00E09A9A /* AppIconSet.swift */,
 				F7F0E3561EE0462800E09A9A /* ResizedImage.swift */,
 				F7F0E33E1EDFE9D500E09A9A /* NSImage+Resizing.swift */,
 				F7F0E3411EE0011C00E09A9A /* NSImage+Saving.swift */,
@@ -116,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				F79678FF1EDFD6A600AC0948 /* AssetResizerTests.swift */,
-				F7F0E35A1EE153EB00E09A9A /* AssetCatalogTests.swift */,
+				F7F0E35A1EE153EB00E09A9A /* AppIconSetTests.swift */,
 				F7363ED51EE531DD005BA675 /* ResizedImageTests.swift */,
 				F7678EF51EE550A60089FAF7 /* SizeDescriptionTests.swift */,
 				F7F0E3511EE0390500E09A9A /* Tools */,
@@ -288,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F0E3591EE14C0B00E09A9A /* AssetCatalog.swift in Sources */,
+				F7F0E3591EE14C0B00E09A9A /* AppIconSet.swift in Sources */,
 				F7F0E3421EE0011C00E09A9A /* NSImage+Saving.swift in Sources */,
 				F7F0E33F1EDFE9D500E09A9A /* NSImage+Resizing.swift in Sources */,
 				F7F0E3571EE0462800E09A9A /* ResizedImage.swift in Sources */,
@@ -301,7 +301,7 @@
 			files = (
 				F7363ED61EE531DD005BA675 /* ResizedImageTests.swift in Sources */,
 				F7F0E3531EE0390500E09A9A /* Bundle+Tests.swift in Sources */,
-				F7F0E35B1EE153EB00E09A9A /* AssetCatalogTests.swift in Sources */,
+				F7F0E35B1EE153EB00E09A9A /* AppIconSetTests.swift in Sources */,
 				F7678EF61EE550A60089FAF7 /* SizeDescriptionTests.swift in Sources */,
 				F79679001EDFD6A600AC0948 /* AssetResizerTests.swift in Sources */,
 				F7F0E3551EE0390E00E09A9A /* TestData.swift in Sources */,

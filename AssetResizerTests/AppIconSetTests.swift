@@ -1,5 +1,5 @@
 //
-//  AssetCatalogTests.swift
+//  AppIconSetTests.swift
 //  AssetResizer
 //
 //  Created by Jean-Étienne on 2/6/17.
@@ -10,7 +10,7 @@ import XCTest
 
 @testable import AssetResizer
 
-class AssetCatalogTests: XCTestCase {
+class AppIconSetTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -24,41 +24,43 @@ class AssetCatalogTests: XCTestCase {
         TestData.removeCacheFolder()
     }
 
-    func testFindAssetCatalog() {
-        let paths = AssetCatalog.findAppIconSets(inFolder: URL.cacheFolder)
+    func testFindAppIconSet() {
+        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder)
 
-        XCTAssertEqual(paths.count, 1, "AssetCatalog didn't find exactly one .appiconset")
+        XCTAssertEqual(paths.count, 1, "AppIconSet didn't find exactly one .appiconset")
     }
     
-    func testNotFindAssetCatalogInsideAssetCatalog() {
-        let paths = AssetCatalog.findAppIconSets(inFolder: URL.cacheFolder.appendingPathComponent("SampleAppIcon.appiconset"))
+    func testNotFindAppIconSetInsideAppIconSet() {
+        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder.appendingPathComponent("SampleAppIcon.appiconset"))
 
-        XCTAssertEqual(paths.count, 0, "AssetCatalog found an .appiconset")
+        XCTAssertEqual(paths.count, 0, "AppIconSet found an .appiconset")
+    }
+
+    func testInitializingWithWrongFolder() {
+        XCTAssertNil(AppIconSet(atPath: URL.cacheFolder), "AppIconSet found some sizes")
     }
 
     func testGettingSizes() {
-        let paths = AssetCatalog.findAppIconSets(inFolder: URL.cacheFolder)
+        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder)
         let appIconSetPath = paths[0]
-        let assetCatalog = AssetCatalog(atPath: appIconSetPath)
-        let sizes = assetCatalog.sizes
+        if let appIconSet = AppIconSet(atPath: appIconSetPath) {
+            let sizes = appIconSet.sizes
 
-        XCTAssertEqual(sizes.count, 44, "AssetCatalog didn't find exactly 44 sizes")
-    }
-
-    func testGettingNoSizes() {
-        let assetCatalog = AssetCatalog(atPath: URL.cacheFolder)
-        let sizes = assetCatalog.sizes
-
-        XCTAssertEqual(sizes.count, 0, "AssetCatalog found some sizes")
+            XCTAssertEqual(sizes.count, 44, "AppIconSet didn't find exactly 44 sizes")
+        } else {
+            XCTAssertTrue(false, "AppIconSet could not be initialized")
+        }
     }
 
     func testUpdate() {
         let originalImage = TestData.image(named: "sample-red-app-icon")!
-        let paths = AssetCatalog.findAppIconSets(inFolder: URL.cacheFolder)
+        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder)
         let appIconSetPath = paths[0]
-        var assetCatalog = AssetCatalog(atPath: appIconSetPath)
+        guard var appIconSet = AppIconSet(atPath: appIconSetPath) else {
+            return XCTAssertTrue(false, "AppIconSet could not be initialized")
+        }
 
-        let resizedImages = assetCatalog.sizes.map { sizeDescription -> ResizedImage? in
+        let resizedImages = appIconSet.sizes.map { sizeDescription -> ResizedImage? in
             return ResizedImage(original: originalImage,
                                 name: sizeDescription.canonicalName,
                                 resizing: sizeDescription,
@@ -66,12 +68,12 @@ class AssetCatalogTests: XCTestCase {
             }.flatMap { $0 }
 
         do {
-            try assetCatalog.update(with: resizedImages)
+            try appIconSet.update(with: resizedImages)
         } catch {
-            XCTAssertTrue(false, "AssetCatalog could not update the contents")
+            XCTAssertTrue(false, "AppIconSet could not update the contents")
         }
 
-        if let updatedSizes = AssetCatalog(atPath: appIconSetPath).jsonRepresentation?["images"] as? [[String: String]] {
+        if let updatedSizes = AppIconSet(atPath: appIconSetPath)?.jsonRepresentation["images"] as? [[String: String]] {
             let updatedFilenames = updatedSizes.map { $0["filename"] }.flatMap { $0 }.sorted()
             let expectedFilenames = [
                 "car-60x60@2x.png",
@@ -120,9 +122,9 @@ class AssetCatalogTests: XCTestCase {
                 "watch-98x98@2x.png"
             ].sorted()
 
-            XCTAssertEqual(updatedFilenames, expectedFilenames, "AssetCatalog didn't find the expected updated contents")
+            XCTAssertEqual(updatedFilenames, expectedFilenames, "AppIconSet didn't find the expected updated contents")
         } else {
-            XCTAssertTrue(false, "AssetCatalog could not read the updated catalog")
+            XCTAssertTrue(false, "AppIconSet could not read the updated catalog")
         }
     }
 
