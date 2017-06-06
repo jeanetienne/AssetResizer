@@ -1,2 +1,2 @@
-# AssetResizer
-Swift framework to resize app icons based on a Xcode .xcasset file
+# 🏞 AssetResizer
+Swift framework to create app icons based on the content of a .appiconset folder in an asset catalog.
