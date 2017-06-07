@@ -25,13 +25,13 @@ class AppIconSetTests: XCTestCase {
     }
 
     func testFindAppIconSet() {
-        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder)
+        let paths = AppIconSet.find(in: URL.cacheFolder)
 
         XCTAssertEqual(paths.count, 1, "AppIconSet didn't find exactly one .appiconset")
     }
     
     func testNotFindAppIconSetInsideAppIconSet() {
-        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder.appendingPathComponent("SampleAppIcon.appiconset"))
+        let paths = AppIconSet.find(in: URL.cacheFolder.appendingPathComponent("SampleAppIcon.appiconset"))
 
         XCTAssertEqual(paths.count, 0, "AppIconSet found an .appiconset")
     }
@@ -41,7 +41,7 @@ class AppIconSetTests: XCTestCase {
     }
 
     func testGettingSizes() {
-        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder)
+        let paths = AppIconSet.find(in: URL.cacheFolder)
         let appIconSetPath = paths[0]
         if let appIconSet = AppIconSet(atPath: appIconSetPath) {
             let sizes = appIconSet.sizes
@@ -54,7 +54,7 @@ class AppIconSetTests: XCTestCase {
 
     func testUpdate() {
         let originalImage = TestData.image(named: "sample-red-app-icon")!
-        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder)
+        let paths = AppIconSet.find(in: URL.cacheFolder)
         let appIconSetPath = paths[0]
         guard var appIconSet = AppIconSet(atPath: appIconSetPath) else {
             return XCTAssertTrue(false, "AppIconSet could not be initialized")
