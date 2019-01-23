@@ -11,7 +11,7 @@ extension NSImage {
         let frame = CGRect(origin: CGPoint.zero, size: size)
         guard let bestRepresentation = self.bestRepresentation(for: frame,
                                                                context: nil,
-                                                               hints: [NSImageHintInterpolation: NSImageInterpolation.high])
+                                                               hints: [.interpolation: NSImageInterpolation.high])
             else {
             return nil
         }

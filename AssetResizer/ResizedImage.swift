@@ -18,7 +18,7 @@ public struct ResizedImage {
     public let sizeDescription: SizeDescription
 
     /// The bitmap type to be used when saving this image to disk
-    public let bitmapType: NSBitmapImageFileType
+    public let bitmapType: NSBitmapImageRep.FileType
 
     /// The filename to be used when saving this image to disk
     public var filename: String {
@@ -36,7 +36,7 @@ public struct ResizedImage {
     init?(original: NSImage,
           name aName: String,
           resizing aSizeDescription: SizeDescription,
-          bitmapType aBitmapType: NSBitmapImageFileType) {
+          bitmapType aBitmapType: NSBitmapImageRep.FileType) {
         guard let resizedOriginal = original.resize(to: aSizeDescription.pixelSize) else {
             return nil
         }
@@ -137,21 +137,21 @@ private extension CGFloat {
 
 }
 
-private extension NSBitmapImageFileType {
+private extension NSBitmapImageRep.FileType {
 
     var fileExtension: String {
         switch self {
-        case .TIFF:
+        case .tiff:
             return "tiff"
-        case .BMP:
+        case .bmp:
             return "bmp"
-        case .GIF:
+        case .gif:
             return "gif"
-        case .JPEG:
+        case .jpeg:
             return "jpg"
-        case .PNG:
+        case .png:
             return "png"
-        case .JPEG2000:
+        case .jpeg2000:
             return "jpg"
         }
     }
