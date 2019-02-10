@@ -7,6 +7,4 @@ import XCTest
 
 @testable import AssetResizer
 
-class AssetResizerTests: XCTestCase {
-
-}
+final class AssetResizerTests: XCTestCase {}
