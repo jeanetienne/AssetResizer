@@ -7,4 +7,8 @@ import XCTest
 
 @testable import AssetResizer
 
-final class AssetResizerTests: XCTestCase {}
+final class AssetResizerTests: XCTestCase {
+
+    static let identifier = "net.jeanetienne.AssetResizerTests"
+
+}
